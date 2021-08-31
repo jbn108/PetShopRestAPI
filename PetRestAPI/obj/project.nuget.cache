@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "0EI8IbYHgXCFBqMTVjuKCatzOLW1XAQROHJDogyRpod+kDLFBMiZiJ17JUEBg23md5001qn3uapPH0nwm3rmbA==",
+  "success": true,
+  "projectFilePath": "/Users/jonasbuus/RiderProjects/PetShopRestAPI/PetRestAPI/PetRestAPI.csproj",
+  "expectedPackageFiles": [
+    "/Users/jonasbuus/.nuget/packages/microsoft.extensions.apidescription.server/3.0.0/microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "/Users/jonasbuus/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/jonasbuus/.nuget/packages/swashbuckle.aspnetcore/5.6.3/swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "/Users/jonasbuus/.nuget/packages/swashbuckle.aspnetcore.swagger/5.6.3/swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "/Users/jonasbuus/.nuget/packages/swashbuckle.aspnetcore.swaggergen/5.6.3/swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "/Users/jonasbuus/.nuget/packages/swashbuckle.aspnetcore.swaggerui/5.6.3/swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
