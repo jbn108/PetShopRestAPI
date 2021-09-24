@@ -10,6 +10,7 @@ namespace NTY.PetShop.SQL.Entities
         public DateTime SoldDate { get; set; }
         public string Color { get; set; }
         public double Price { get; set; }
-        public int TypeId { get; set; }   
+        public int TypeId { get; set; }
+        public int OwnerId { get; set; }
     }
 }

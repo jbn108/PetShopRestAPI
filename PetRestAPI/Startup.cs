@@ -1,16 +1,18 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using NTY.PetShop.Core.IServices;
+using NTY.PetShop.Core.Models;
+using NTY.PetShop.Domain.IRepositories;
+using NTY.PetShop.Domain.Services;
+using NTY.PetShop.Sqlite;
+using NTY.PetShop.Sqlite.Repositories;
 
 namespace PetRestAPI
 {
@@ -26,7 +28,19 @@ namespace PetRestAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddDbContext<PetAppContext>(
+                opt => opt.UseSqlite("Data Source=PetApp.db")
+                );
+            
+            services.AddScoped<IPetService, PetService>();
+            services.AddScoped<IPetRepository, PetRepository>();
+            services.AddScoped<IPetTypeService, PetTypeService>();
+            services.AddScoped<IPetTypeRepository, PetTypeRepository>();
+            services.AddScoped<IOwnerService, OwnerService>();
+            services.AddScoped<IOwnerRepository, OwnerRepository>();
+            services.AddScoped<IInsuranceService, InsuranceService>();
+            services.AddScoped<IInsuranceRepository, InsuranceRepository>();
+            services.AddControllers(); 
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo {Title = "PetRestAPI", Version = "v1"});
@@ -39,6 +53,14 @@ namespace PetRestAPI
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var ctx = scope.ServiceProvider.GetService<PetAppContext>();
+                    SeedDB.DBseed(ctx);
+
+                }
+                
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PetRestAPI v1"));
             }
@@ -52,4 +74,6 @@ namespace PetRestAPI
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
     }
+
+    
 }

@@ -13,7 +13,7 @@ namespace NTY.PetShop.Core.IServices
 
         Pet UpdatePet(Pet pet);
 
-        List<Pet> ReadAll();
+        IEnumerable<Pet> ReadAll();
         
         
     }

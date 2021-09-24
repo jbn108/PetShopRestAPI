@@ -13,6 +13,6 @@ namespace NTY.PetShop.Domain.IRepositories
 
         Pet Delete(int id);
 
-        List<Pet> GetAll();
+        IEnumerable<Pet> GetAll();
     }
 }

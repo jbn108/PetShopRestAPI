@@ -5,7 +5,21 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="5.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.6" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\NTY.PetShop.Core\NTY.PetShop.Core.csproj" />
+      <ProjectReference Include="..\NTY.PetShop.Domain\NTY.PetShop.Domain.csproj" />
+      <ProjectReference Include="..\NTY.PetShop.Sqlite\NTY.PetShop.Sqlite.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Dtos\Pet" />
     </ItemGroup>
 
 </Project>

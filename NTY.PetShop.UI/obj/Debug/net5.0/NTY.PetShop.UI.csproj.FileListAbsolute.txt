@@ -42,3 +42,6 @@
 /Users/jonasbuus/RiderProjects/PetShopRestAPI/NTY.PetShop.UI/obj/Debug/net5.0/ref/NTY.PetShop.UI.dll
 /Users/jonasbuus/RiderProjects/PetShopRestAPI/NTY.PetShop.UI/obj/Debug/net5.0/NTY.PetShop.UI.pdb
 /Users/jonasbuus/RiderProjects/PetShopRestAPI/NTY.PetShop.UI/obj/Debug/net5.0/NTY.PetShop.UI.genruntimeconfig.cache
+/Users/jonasbuus/RiderProjects/PetShopRestAPI/NTY.PetShop.UI/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/jonasbuus/RiderProjects/PetShopRestAPI/NTY.PetShop.UI/bin/Debug/net5.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/jonasbuus/RiderProjects/PetShopRestAPI/NTY.PetShop.UI/bin/Debug/net5.0/System.Runtime.CompilerServices.Unsafe.dll

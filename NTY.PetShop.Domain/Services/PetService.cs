@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using NTY.PetShop.Core.IServices;
 using NTY.PetShop.Core.Models;
 using NTY.PetShop.Domain.IRepositories;
@@ -8,9 +9,11 @@ namespace NTY.PetShop.Domain.Services
     public class PetService : IPetService
     {
         private IPetRepository _petRepository;
-        public PetService(IPetRepository petRepository)
+        private IOwnerRepository _ownerRepository;
+        public PetService(IPetRepository petRepository, IOwnerRepository ownerRepository)
         {
             _petRepository = petRepository;
+            _ownerRepository = ownerRepository;
         }
 
         public Pet Create(Pet pet)
@@ -33,7 +36,7 @@ namespace NTY.PetShop.Domain.Services
             return _petRepository.UpdatePet(pet);
         }
 
-        public List<Pet> ReadAll()
+        public IEnumerable<Pet> ReadAll()
         {
             return _petRepository.GetAll();
         }

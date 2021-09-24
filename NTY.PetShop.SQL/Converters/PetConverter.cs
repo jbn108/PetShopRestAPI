@@ -9,6 +9,7 @@ namespace NTY.PetShop.SQL.Converters
     public class PetConverter
     {
         private IPetTypeRepository _petTypeRepo = new PetTypeRepository();
+        private IOwnerRepository _ownerRepository = new OwnerRepository();
         public PetEntity Convert(Pet pet)
         {
             return new PetEntity()
@@ -19,7 +20,8 @@ namespace NTY.PetShop.SQL.Converters
                 Name = pet.Name,
                 Price = pet.Price,
                 SoldDate = pet.SoldDate,
-                TypeId = pet.Type.Id
+                TypeId = pet.Type.Id,
+                OwnerId = pet.Owner.Id.Value
             };
         }
         
@@ -33,7 +35,8 @@ namespace NTY.PetShop.SQL.Converters
                 Name = petEntity.Name,
                 Price = petEntity.Price,
                 SoldDate = petEntity.SoldDate,
-                Type = _petTypeRepo.ReadById(petEntity.TypeId)
+                Type = _petTypeRepo.ReadById(petEntity.TypeId),
+                Owner = _ownerRepository.ReadById(petEntity.OwnerId)
             };
         }
     }

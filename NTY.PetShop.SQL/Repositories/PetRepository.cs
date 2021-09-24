@@ -66,14 +66,11 @@ namespace NTY.PetShop.SQL.Repositories
 
         public Pet ReadById(int id)
         {
-            foreach (var petEntity in _petsTable)
+            var pet = _petConverter.Convert(_petsTable.FirstOrDefault(p => p.Id == id));
+            if (pet != null)
             {
-                if (petEntity.Id == id)
-                {
-                    return _petConverter.Convert(petEntity);
-                }
+                return pet;
             }
-
             return null;
         }
 
@@ -89,12 +86,8 @@ namespace NTY.PetShop.SQL.Repositories
                 petOld.BirthDate = pet.BirthDate;
                 petOld.SoldDate = pet.SoldDate;
                 petOld.TypeId = pet.Type.Id;
+                return _petConverter.Convert(petOld);
             }
-            
-            /*
-            _petsTable.Remove(_petsTable.FirstOrDefault(p => p.Id == pet.Id));
-            _petsTable.Add(_petConverter.Convert(pet));
-            */
             return null;
         }
 
@@ -105,7 +98,7 @@ namespace NTY.PetShop.SQL.Repositories
             return pet;
         }
 
-        public List<Pet> GetAll()
+        public IEnumerable<Pet> GetAll()
         {
             var listOfPets = new List<Pet>();
             foreach (var pet in _petsTable)

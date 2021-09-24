@@ -13,6 +13,7 @@ namespace NTY.PetShop.Core.Models
         public string Color { get; set; }
         public double Price { get; set; }
         public PetType Type { get; set; }
+        public Owner? Owner { get; set; }
 
         public override string ToString()
         {

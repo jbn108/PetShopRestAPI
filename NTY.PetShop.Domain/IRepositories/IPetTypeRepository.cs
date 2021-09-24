@@ -5,8 +5,14 @@ namespace NTY.PetShop.Domain.IRepositories
 {
     public interface IPetTypeRepository
     {
-        PetType ReadById(int petEntityTypeId);
+        PetType Add(Pet pet);
 
-        List<PetType> GetAll();
+        PetType ReadById(int id);
+
+        PetType UpdatePet(Pet pet);
+
+        PetType Delete(int id);
+
+        IEnumerable<PetType> GetAll();
     }
 }

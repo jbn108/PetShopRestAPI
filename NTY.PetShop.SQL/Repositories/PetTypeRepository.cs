@@ -82,7 +82,7 @@ namespace NTY.PetShop.SQL.Repositories
             return null;
         }
 
-        public List<PetType> GetAll()
+        public IEnumerable<PetType> GetAll()
         {
             return _petsTypeTable;
         }
